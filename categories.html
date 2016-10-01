@@ -1,0 +1,17 @@
+---
+layout: page 
+---
+
+<div class="section">
+{% for category in site.categories %}
+<div class="section-title" id="{{ category[0] }}">
+    {{ category[0] }} 
+</div>
+{% for post in category[1] %}
+<div class="section-item">
+    <a class="section-item-title" href="{{ post.url }}"> {{ post.title }} </a>
+    <div class="section-item-date pull-right"> {{ post.date  | date: "%Y-%m-%d" }} </div>
+</div>
+{% endfor %}
+{% endfor %}
+</div>

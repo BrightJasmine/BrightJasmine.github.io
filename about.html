@@ -1,0 +1,20 @@
+---
+layout: page 
+---
+<div class="archive">
+{% for post in site.posts %}
+    {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+    {% if year != y %}
+         {% assign year = y %}
+         <section class="archive-year">{{ y }}</section>
+    {% endif %}
+    <section class="archive-item">
+        <a class="archive-item-title" href="{{post.url}}">
+            {{post.title}} 
+        </a>
+        <div class="archive-item-date pull-right">
+        {{ post.date  | date: "%Y-%m-%d" }}
+        </div>
+    </section>
+{% endfor %}
+</div>

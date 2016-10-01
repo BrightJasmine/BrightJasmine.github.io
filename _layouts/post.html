@@ -1,0 +1,48 @@
+---
+layout: base
+---
+<main class="post-body">
+    <header class="post-header">
+        <div class="post-title">{{ page.title }}</div>
+        <div class="post-detail">
+            <div class="post-time">
+                {{ page.time }}, 发表于 <span>{{ page.location }}</span>
+            </div>
+            {% if page.category %} 
+            |
+            <div class="post-category">
+                <a href="/categories.html#{{ page.category }}"> {{ page.category }} </a> 
+            </div>
+            {% endif %}
+            {% if page.tags %}
+            |
+             <div class="post-tags">
+                {% for tag in page.tags %} 
+                <div class="post-tag">
+                        <a href="/tags.html#{{ tag }}"> {{tag}} </a>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+     </header>
+     <div class="post-content">
+         {{ content }}
+    </div>
+    <div class="other-pages"> 
+        {% if page.previous %}
+        <a href="{{page.previous.url }}">
+            <div class="prev-page pull-left">
+                    上一篇: {{ page.previous.title}}
+            </div>
+        </a>
+        {% endif %}
+        {% if page.next %}
+        <a href="{{ page.next.url }}">
+            <div class="next-page pull-right">
+                 下一篇: {{ page.next.title }}
+            </div>
+        </a>
+        {% endif %}
+    </div>
+</main>

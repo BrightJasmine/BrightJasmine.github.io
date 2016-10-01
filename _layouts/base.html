@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" lang="en-us">
+   <head>
+         <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+         <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+         <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+         <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+         <link rel="stylesheet" href="{{ "/assets/css/bootstrap.min.css" | prepend: site.baseurl }}">
+         <link rel="stylesheet" href="{{ "/assets/css/font-awesome.min.css" | prepend: site.baseurl }}">
+         <link rel="stylesheet" href="{{ "/assets/css/blog.css" | prepend: site.baseurl }}" >
+         <!-- Google fonts -->
+         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans:300' type='text/css'>
+         <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Source+Sans+Pro' type='text/css'>
+  </head>
+  <body>
+      <div id="main" role="main">
+        <head>
+            {% include nav.html %}
+        </head>
+        <div id="content">
+            {{ content }}
+        </div>
+        <hr class="home-item-seperator"/>
+        <footer id="footer">
+            <p><small> &copy;Designed by <a href="http://disheng.me"><strong>{{site.author}}</strong></a> | Powered by <a href="https://github.com/mojombo/jekyll"><strong>Jekyll</strong></a> |<a target="_blank" href="https://github.com/BrightJasmine"><strong> Fork Me <strong></a> | <span class="label label-success">2016-09-30</span></small></p>
+        </footer>
+      </div> 
+  </body>
+</html>
+

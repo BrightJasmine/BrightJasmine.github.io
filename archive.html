@@ -1,0 +1,20 @@
+---
+layout: page 
+---
+<div class="section">
+{% for post in site.posts %}
+    {% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+    {% if year != y %}
+         {% assign year = y %}
+         <section class="section-title">{{ y }}</section>
+    {% endif %}
+    <section class="section-item">
+        <a class="section-item-title" href="{{post.url}}">
+            {{post.title}} 
+        </a>
+        <div class="section-item-date pull-right">
+        {{ post.date  | date: "%Y-%m-%d" }}
+        </div>
+    </section>
+{% endfor %}
+</div>
